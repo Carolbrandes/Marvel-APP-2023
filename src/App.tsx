@@ -1,12 +1,16 @@
 import AppRoutes from 'routes'
 import GlobalStyles from '@common/styles'
+import { UserStorage } from '@context/globalContext'
+
 
 function App() {
 
   return (
     <>
       <GlobalStyles />
-      <AppRoutes />
+      <UserStorage>
+        <AppRoutes />
+      </UserStorage>
     </>
   )
 }

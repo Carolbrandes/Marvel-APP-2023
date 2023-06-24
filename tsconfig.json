@@ -19,6 +19,9 @@
       ],
       "@services/*": [
         "./services/*"
+      ],
+      "@context/*": [
+        "./context/*"
       ]
     },
     "target": "ES2020",
