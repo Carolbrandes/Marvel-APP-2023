@@ -1,6 +1,5 @@
 import { ICharacter } from '@common/types/IglobalContext'
-import Button from '@mui/material/Button'
-import { Typography } from '@mui/material';
+import { Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 import * as S from './styles'
 
