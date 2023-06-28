@@ -1,32 +1,35 @@
-import { createGlobalStyle } from 'styled-components'
+import { createTheme } from '@mui/material/styles'
 
-const GlobalStyles:any = createGlobalStyle`
-  :root {
-    --background: #030518;
-    --white: #fff;
+declare module '@mui/material/styles' {
+  // allow configuration using `createTheme`
+  interface ThemeOptions {
+    fonts: {
+      body: string
+      heading: string
+      monospace: string
+    };
+
+    colors: {
+      text: string
+      background: string
+      primary: string
+    }
   }
+}
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+const themeMUI = createTheme({
+  fonts: {
+    body: 'system-ui, sans-serif',
+    heading: '"Avenir Next", sans-serif',
+    monospace: 'Menlo, monospace',
+  },
+  colors: {
+    text: '#000',
+    background: '#fff',
+    primary: '#33e',
+  },
+})
+
+export default themeMUI
 
 
-  html, body {
-    height: 100%;
-    background: var(--background);
-    color: var(--white);
-  }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-  }
-
-
-  a {
-    color: var(--white);
-  }
-`
-
-export default GlobalStyles

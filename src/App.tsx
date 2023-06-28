@@ -1,17 +1,24 @@
 import AppRoutes from 'routes'
-import GlobalStyles from '@common/styles'
+import themeMUI from '@common/styles'
 import { UserStorage } from '@context/globalContext'
+import { ThemeProvider } from '@mui/material'
+import Container from '@mui/material/Container'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
+const queryClient = new QueryClient()
 
 function App() {
 
   return (
-    <>
-      <GlobalStyles />
-      <UserStorage>
-        <AppRoutes />
-      </UserStorage>
-    </>
+    <ThemeProvider theme={themeMUI}>
+      <QueryClientProvider client={queryClient}>
+        <UserStorage>
+          <Container maxWidth="md">
+            <AppRoutes />
+          </Container>
+        </UserStorage>
+      </QueryClientProvider>
+    </ThemeProvider>
   )
 }
 
