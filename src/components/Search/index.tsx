@@ -14,15 +14,15 @@ const Search = () => {
 
     return (
 
-        <S.BoxContainer mt={3} sx={{ display: 'flex', alignItems: 'flex-end' }}>
+        <S.BoxContainer mt={3} sx={{ display: 'flex', alignItems: 'flex-end', width: '80%' }}>
             <TextField
                 id="search"
                 label="Buscar Herói"
                 variant="standard"
                 value={search}
                 onChange={handleInput}
-                fullWidth
                 autoFocus
+                fullWidth
             />
 
             <S.WrapperIconSearch>

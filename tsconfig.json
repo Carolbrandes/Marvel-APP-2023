@@ -27,10 +27,10 @@
         "./node_modules/@mui/styled-engine-sc"
       ]
     },
-    "target": "ES2020",
+    "target": "ES6",
     "useDefineForClassFields": true,
     "lib": [
-      "ES2020",
+      "ES6",
       "DOM",
       "DOM.Iterable"
     ],

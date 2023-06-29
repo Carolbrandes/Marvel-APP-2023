@@ -9,5 +9,5 @@ const baseURL = import.meta.env.VITE_BASE_URL
 
 
 export const ApiMarvel = {
-    getCharacters: () => axios.get(`${baseURL}/characters?apikey=${apikey}&ts=${time}&hash=${hash}`)
+    getCharacters: () => axios.get(`${baseURL}/characters?apikey=${apikey}&ts=${time}&hash=${hash}&limit=50`)
 }

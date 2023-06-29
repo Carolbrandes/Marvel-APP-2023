@@ -13,7 +13,7 @@ function App() {
     <ThemeProvider theme={themeMUI}>
       <QueryClientProvider client={queryClient}>
         <UserStorage>
-          <Container maxWidth="md">
+          <Container sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}} maxWidth="xl">
             <AppRoutes />
           </Container>
         </UserStorage>

@@ -1,7 +1,5 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 import Button from '@mui/material/Button'
-
-
 
 export const Container = styled.div`
   display: flex;
@@ -11,19 +9,19 @@ export const Container = styled.div`
 `
 
 export const Image = styled.img`
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 `
 
 export const WrapperImage = styled.div`
-    width: 250px;
-    height: 211px;
-    border: 3px solid #333232;
-    margin-bottom: 20px;
+  width: 250px;
+  height: 250px;
+  border: 3px solid #333232;
+  margin-bottom: 7px;
 `
 
 export const ButtonLink = styled(Button)`
-    border-color: #333232;
-    color: #333232;
-    margin-top: 10px;
+  border-color: #333232;
+  color: #333232;
+  margin-top: 10px;
 `
