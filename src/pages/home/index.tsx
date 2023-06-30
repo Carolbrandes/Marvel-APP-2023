@@ -1,5 +1,5 @@
-import Heros from '@components/Heros'
-import Search from '@components/Search'
+import Heros from "@components/Heros";
+import Search from "@components/Search";
 
 const Home = () => {
   return (
@@ -7,7 +7,7 @@ const Home = () => {
       <Search />
       <Heros />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const List = styled.ul`
   padding: 0;
@@ -7,8 +7,8 @@ export const List = styled.ul`
   a {
     color: #000;
   }
-`
+`;
 
 export const Infos = styled.div`
   margin-bottom: 30px;
-`
+`;

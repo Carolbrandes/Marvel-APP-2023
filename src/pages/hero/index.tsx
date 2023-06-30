@@ -1,15 +1,15 @@
-import { IItemsSeries } from '@common/types/IglobalContext'
-import HeroCard from '@components/Heros/HeroCard'
-import * as S from './styles'
-import Title from '@components/Title'
-import Text from '@components/Text'
-import Breadcrumb from '@components/BreadCrumb'
+import { IItemsSeries } from "@common/types/IglobalContext";
+import HeroCard from "@components/Heros/HeroCard";
+import * as S from "./styles";
+import Title from "@components/Title";
+import Text from "@components/Text";
+import Breadcrumb from "@components/BreadCrumb";
 
 const HeroPage = () => {
-  const characterSelected = localStorage.getItem('selectedCharacter')
+  const characterSelected = localStorage.getItem("selectedCharacter");
 
   const characterSelectedParse =
-    characterSelected && JSON.parse(characterSelected)
+    characterSelected && JSON.parse(characterSelected);
 
   return (
     characterSelectedParse && (
@@ -49,7 +49,7 @@ const HeroPage = () => {
         </HeroCard>
       </>
     )
-  )
-}
+  );
+};
 
-export default HeroPage
+export default HeroPage;

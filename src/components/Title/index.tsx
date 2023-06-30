@@ -1,13 +1,13 @@
-import { Typography } from '@mui/material'
+import { Typography } from "@mui/material";
 
 interface IProps {
-  text: string
+  text: string;
 }
 
 const Title = ({ text }: IProps) => (
   <Typography variant="h6" gutterBottom>
     {text}
   </Typography>
-)
+);
 
-export default Title
+export default Title;

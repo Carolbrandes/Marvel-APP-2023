@@ -1,5 +1,5 @@
-import Breadcrumb from '@components/BreadCrumb'
-import * as S from './styles'
+import Breadcrumb from "@components/BreadCrumb";
+import * as S from "./styles";
 
 const NotFound = () => (
   <S.Container data-component="notfound-Container">
@@ -7,6 +7,6 @@ const NotFound = () => (
 
     <Breadcrumb isNotFound />
   </S.Container>
-)
+);
 
-export default NotFound
+export default NotFound;

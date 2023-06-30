@@ -1,16 +1,16 @@
-import { Link } from 'react-router-dom'
-import * as S from './styles'
-import HomeIcon from '@mui/icons-material/Home'
-import { Typography } from '@mui/material'
+import { Link } from "react-router-dom";
+import * as S from "./styles";
+import HomeIcon from "@mui/icons-material/Home";
+import { Typography } from "@mui/material";
 
 interface IRoutes {
-  path: string
-  label: string
+  path: string;
+  label: string;
 }
 
 interface IProps {
-  routes?: IRoutes[]
-  isNotFound?: boolean
+  routes?: IRoutes[];
+  isNotFound?: boolean;
 }
 
 const Breadcrumb = ({ routes, isNotFound }: IProps) => {
@@ -34,7 +34,7 @@ const Breadcrumb = ({ routes, isNotFound }: IProps) => {
           ))
         : false}
     </S.Container>
-  )
-}
+  );
+};
 
-export default Breadcrumb
+export default Breadcrumb;

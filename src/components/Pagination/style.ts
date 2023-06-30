@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const PaginationContainer = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ export const PaginationContainer = styled.div`
     display: flex;
     padding: 0;
     list-style-type: none;
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   }
 
   .page-item {
@@ -32,4 +32,4 @@ export const PaginationContainer = styled.div`
       color: #fff;
     }
   }
-`
+`;

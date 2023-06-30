@@ -1,15 +1,15 @@
-import { ICharacter } from '@common/types/IglobalContext'
-import * as S from './styles'
-import Title from '@components/Title'
+import { ICharacter } from "@common/types/IglobalContext";
+import * as S from "./styles";
+import Title from "@components/Title";
 
 interface IProps {
-  character: ICharacter
-  children: React.ReactNode
-  isHeroPage?: boolean
+  character: ICharacter;
+  children: React.ReactNode;
+  isHeroPage?: boolean;
 }
 
 const HeroCard = ({ character, isHeroPage, children }: IProps) => {
-  const { name, thumbnail } = character
+  const { name, thumbnail } = character;
 
   return (
     <S.Container data-component="herocard-Container" isHeroPage={isHeroPage}>
@@ -26,7 +26,7 @@ const HeroCard = ({ character, isHeroPage, children }: IProps) => {
 
       <div>{children}</div>
     </S.Container>
-  )
-}
+  );
+};
 
-export default HeroCard
+export default HeroCard;
