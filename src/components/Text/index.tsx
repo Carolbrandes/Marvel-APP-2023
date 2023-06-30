@@ -1,14 +1,13 @@
-import { Typography } from '@mui/material'
+import * as S from './styles'
 
 interface IProps {
-  text: string
-  styles?: any
+  children: React.ReactNode
 }
 
-const Text = ({ text, styles }: IProps) => (
-  <Typography sx={styles} variant="body1" gutterBottom>
-    {text}
-  </Typography>
+const Text = ({ children }: IProps) => (
+  <S.Text data-component="text-Text" variant="body1" gutterBottom>
+    {children}
+  </S.Text>
 )
 
 export default Text

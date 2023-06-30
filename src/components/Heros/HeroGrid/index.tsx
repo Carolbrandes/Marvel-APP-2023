@@ -1,17 +1,30 @@
-import { memo, useEffect, useState } from 'react'
-import { ICharacter } from '@common/types/IglobalContext'
+import { memo, useCallback, useContext, useEffect, useState } from 'react'
+import { ICharacter, IGlobalContext } from '@common/types/IglobalContext'
 import Pagination from '@components/Pagination'
 import Grid from '@mui/material/Grid'
 import HeroCard from '../HeroCard'
-
+import * as S from '../styles'
+import { UserContext } from '@context/globalContext'
+import { useNavigate } from 'react-router-dom'
 interface IProps {
   characters: ICharacter[]
 }
 
 const HeroGrid = memo(({ characters }: IProps) => {
+  const { setSelectedCharacter }: IGlobalContext = useContext(UserContext)
   const [charactersPerPage, setCharactersPerPage] = useState<ICharacter[]>()
+  const navigate = useNavigate()
 
-  
+  const handleClick = (character: ICharacter) => {
+    setSelectedCharacter && setSelectedCharacter(character)
+    localStorage.setItem('selectedCharacter', JSON.stringify(character))
+    navigate(`./${character.name.toLowerCase().trim()}/${character.id}`)
+  }
+
+  const handleCharacterPerPage = useCallback(() => {
+    setCharactersPerPage(characters)
+  }, [characters])
+
   useEffect(() => console.log('HeroGrid render'))
 
   return (
@@ -24,15 +37,30 @@ const HeroGrid = memo(({ characters }: IProps) => {
       >
         {charactersPerPage?.length &&
           charactersPerPage?.map((character: ICharacter) => (
-            <Grid key={character.id} xs={8} md={4} lg={3} sx={{ marginBottom: '30px' }}>
-              <HeroCard character={character} />
+            <Grid
+              key={character.id}
+              xs={8}
+              md={4}
+              lg={3}
+              sx={{ marginBottom: '30px' }}
+            >
+              <HeroCard character={character}>
+                <S.ButtonLink
+                  onClick={() => handleClick(character)}
+                  variant="outlined"
+                  color="primary"
+                  size="large"
+                >
+                  Ver Mais
+                </S.ButtonLink>
+              </HeroCard>
             </Grid>
           ))}
       </Grid>
 
       <Pagination
         characters={characters}
-        setCharactersPerPage={setCharactersPerPage}
+        setCharactersPerPage={handleCharacterPerPage}
       />
     </>
   )

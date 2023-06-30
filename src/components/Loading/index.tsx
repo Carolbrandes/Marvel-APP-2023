@@ -1,21 +1,10 @@
-import Stack from '@mui/material/Stack'
 import CircularProgress from '@mui/material/CircularProgress'
+import * as S from './styles'
 
 const Loading = () => (
-  <Stack
-    sx={{
-      color: 'grey.500',
-      margin: '80px 0',
-      position: 'absolute',
-      top: '10%',
-      left: '50%',
-      transform: 'translateX(-50%)'
-
-    }}
-    spacing={5}
-  >
+  <S.Container data-component="loading-Container">
     <CircularProgress size={60} color="inherit" />
-  </Stack>
+  </S.Container>
 )
 
 export default Loading

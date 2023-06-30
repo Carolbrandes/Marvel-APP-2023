@@ -13,11 +13,12 @@ const Search = () => {
 
   return (
     <S.BoxContainer
+      data-component="search-BoxContainer"
       mt={3}
       sx={{ display: 'flex', alignItems: 'flex-end', width: '80%' }}
     >
       <TextField
-        id="search"
+        data-component="search"
         label="Buscar Herói"
         variant="standard"
         value={search}
@@ -25,7 +26,7 @@ const Search = () => {
         fullWidth
       />
 
-      <S.WrapperIconSearch>
+      <S.WrapperIconSearch data-component="search-WrapperIconSearch">
         <SearchRoundedIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
       </S.WrapperIconSearch>
     </S.BoxContainer>

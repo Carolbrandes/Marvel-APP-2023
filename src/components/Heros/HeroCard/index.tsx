@@ -1,41 +1,32 @@
 import { ICharacter } from '@common/types/IglobalContext'
-import { Typography } from '@mui/material'
-import { Link } from 'react-router-dom'
 import * as S from './styles'
+import Title from '@components/Title'
 
 interface IProps {
-    character: ICharacter
-    ownPage?: boolean
+  character: ICharacter
+  children: React.ReactNode
+  isHeroPage?: boolean
 }
 
-const HeroCard = ({ character, ownPage }: IProps) => {
-    const { id, name, description, thumbnail } = character
+const HeroCard = ({ character, isHeroPage, children }: IProps) => {
+  const { name, thumbnail } = character
 
-    const link = ownPage ? '/' : `./${name}/${id}`
+  return (
+    <S.Container data-component="herocard-Container" isHeroPage={isHeroPage}>
+      <S.Content data-component="herocard-Content" isHeroPage={isHeroPage}>
+        <S.WrapperImage data-component="herocard-WrapperImage">
+          <S.Image
+            src={`${thumbnail.path}.${thumbnail.extension}`}
+            alt={`Imagem do personagem ${name}`}
+          />
+        </S.WrapperImage>
 
-    return (
-        <S.Container>
-            <S.WrapperImage>
-                <S.Image src={`${thumbnail.path}.${thumbnail.extension}`} alt={`Imagem do personagem ${name}`} />
-            </S.WrapperImage>
+        <Title text={name} />
+      </S.Content>
 
-            <Typography variant="h6" gutterBottom>
-                {name}
-            </Typography>
-
-            {
-              ownPage && <Typography variant="body1" gutterBottom>
-                    {description}
-                </Typography>
-            }
-
-            <Link to={link}>
-                <S.ButtonLink variant="outlined" color="primary" size="large">
-                   {ownPage ? 'Voltar' : 'Ver Mais'}
-                </S.ButtonLink>
-            </Link>
-        </S.Container>
-    )
+      <div>{children}</div>
+    </S.Container>
+  )
 }
 
 export default HeroCard
