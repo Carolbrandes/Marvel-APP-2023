@@ -1,23 +1,22 @@
-import { ICharacter } from "@common/types/IglobalContext";
-import { createContext, ReactNode, useEffect, useState } from "react"
+import { createContext, ReactNode, useState } from 'react'
 
 interface Props {
-    children?: ReactNode;
+  children?: ReactNode
 }
 
 export const UserContext = createContext({})
 
 export const UserStorage = ({ children }: Props) => {
-    const [search, setSearch] = useState('')
-    const [selectedCharacter, setSelectedCharacter] = useState<ICharacter>()
-    
-    
-
-    return (
-        <UserContext.Provider
-            value={{ search, setSearch, selectedCharacter, setSelectedCharacter }}
-        >
-            {children}
-        </UserContext.Provider>
-    )
+  const [search, setSearch] = useState('')
+  
+  return (
+    <UserContext.Provider
+      value={{
+        search,
+        setSearch
+      }}
+    >
+      {children}
+    </UserContext.Provider>
+  )
 }

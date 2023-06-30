@@ -1,34 +1,33 @@
-import { useEffect, useState } from 'react'
+import {  useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import ArrowBackIosNewSharpIcon from '@mui/icons-material/ArrowBackIosNewSharp'
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import * as S from './style'
+import { ICharacter } from '@common/types/IglobalContext';
 
-interface IProps {
-  resultCharacters: any
+interface IProps{
+  characters: ICharacter[]
   setCharactersPerPage: Function
 }
 
-const Pagination = ({ resultCharacters, setCharactersPerPage }: IProps) => {
-  console.log('🚀 ~ Pagination ~ resultCharacters:', resultCharacters)
+const Pagination = ({characters, setCharactersPerPage}: IProps) => {
   const [pageCount, setPageCount] = useState(0)
   const [itemOffset, setItemOffset] = useState(0)
-  const itemsPerPage = 16
-
+  const itemsPerPage = 15
+  
+ 
   const handlePageClick = (event: any) => {
-    const newOffset = (event.selected * itemsPerPage) % resultCharacters?.length
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    )
+    const newOffset = (event.selected * itemsPerPage) % characters?.length
     setItemOffset(newOffset)
   }
 
+  useEffect(() => console.log('pagination render'))
+
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`)
-    setCharactersPerPage(resultCharacters?.slice(itemOffset, endOffset))
-    setPageCount(Math.ceil(resultCharacters?.length / itemsPerPage))
-  }, [itemOffset, itemsPerPage, resultCharacters])
+    setCharactersPerPage && setCharactersPerPage(characters?.slice(itemOffset, endOffset))
+    setPageCount(Math.ceil(characters?.length / itemsPerPage))
+  }, [itemOffset, itemsPerPage, characters])
 
   return (
     <S.PaginationContainer>

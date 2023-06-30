@@ -8,7 +8,7 @@ interface IProps {
     ownPage?: boolean
 }
 
-const Hero = ({ character, ownPage }: IProps) => {
+const HeroCard = ({ character, ownPage }: IProps) => {
     const { id, name, description, thumbnail } = character
 
     const link = ownPage ? '/' : `./${name}/${id}`
@@ -38,4 +38,4 @@ const Hero = ({ character, ownPage }: IProps) => {
     )
 }
 
-export default Hero
+export default HeroCard

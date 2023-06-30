@@ -11,3 +11,4 @@ export const WrapperIconSearch = styled.div`
     position: absolute;
     right: 0;
 `
+

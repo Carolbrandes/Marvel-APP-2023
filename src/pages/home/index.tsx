@@ -1,11 +1,11 @@
-import AllHeros from "@components/AllHeros"
+import Heros from "@components/Heros"
 import Search from "@components/Search"
 
 const Home = () => {
     return(
         <>
             <Search />
-            <AllHeros />
+            <Heros />
         </>
     )
 }
