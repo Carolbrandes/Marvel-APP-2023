@@ -1,7 +1,6 @@
 import { useContext, ChangeEvent } from "react";
 import { UserContext } from "@context/globalContext";
 import { IGlobalContext } from "@common/types/IglobalContext";
-import TextField from "@mui/material/TextField";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import * as S from "./styles";
 
@@ -17,7 +16,10 @@ const Search = () => {
       mt={3}
       sx={{ display: "flex", alignItems: "flex-end", width: "80%" }}
     >
-      <TextField
+      <S.WrapperIconSearch data-component="search-WrapperIconSearch">
+        <SearchRoundedIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+      </S.WrapperIconSearch>
+      <S.Input
         data-component="search"
         label="Buscar Herói"
         variant="standard"
@@ -25,10 +27,6 @@ const Search = () => {
         onChange={handleInput}
         fullWidth
       />
-
-      <S.WrapperIconSearch data-component="search-WrapperIconSearch">
-        <SearchRoundedIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
-      </S.WrapperIconSearch>
     </S.BoxContainer>
   );
 };
