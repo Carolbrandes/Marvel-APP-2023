@@ -1,4 +1,4 @@
-import InitialLoading from "@components/Loading/InitialLoading";
+import Loading from "@components/Loading";
 import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -8,7 +8,7 @@ const NotFound = lazy(() => import("@pages/notFound"));
 
 const AppRoutes = () => (
   <BrowserRouter>
-    <Suspense fallback={<InitialLoading />}>
+    <Suspense fallback={<Loading />}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:name/:id" element={<Hero />} />

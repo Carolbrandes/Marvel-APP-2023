@@ -10,4 +10,5 @@ export const BoxContainer = styled(Box)`
 export const WrapperIconSearch = styled.div`
   position: absolute;
   right: 0;
+  cursor: pointer;
 `;

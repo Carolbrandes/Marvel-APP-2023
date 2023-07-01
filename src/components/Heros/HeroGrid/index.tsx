@@ -1,4 +1,4 @@
-import { memo, useContext, useEffect, useState } from "react";
+import { memo, useContext, useState } from "react";
 import { ICharacter, IGlobalContext } from "@common/types/IglobalContext";
 import Pagination from "@components/Pagination";
 import Grid from "@mui/material/Grid";
@@ -17,12 +17,9 @@ const HeroGrid = memo(({ characters }: IProps) => {
 
   const handleClick = (character: ICharacter) => {
     setSelectedCharacter && setSelectedCharacter(character);
+    localStorage.setItem("selectedCharacter", JSON.stringify(character));
     navigate(`./${character.name.toLowerCase().trim()}/${character.id}`);
   };
-
-  useEffect(() => {
-    console.log("characters =>", characters);
-  }, [characters]);
 
   return (
     <>

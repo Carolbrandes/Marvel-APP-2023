@@ -34,9 +34,7 @@ const HeroPage = () => {
                   <Text>
                     {characterSelectedParse?.series?.items.map(
                       (item: IItemsSeries) => (
-                        <li key={item.name}>
-                          <a href={item.resourceURI}>{item.name}</a>
-                        </li>
+                        <li key={item.name}>{item.name}</li>
                       )
                     )}
                   </Text>
