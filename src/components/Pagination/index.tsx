@@ -29,6 +29,7 @@ const Pagination = ({ characters, setCharactersPerPage }: IProps) => {
     const characterSlice = characters?.slice(itemOffset, endOffset);
     setCharactersPerPage && setCharactersPerPage(characterSlice);
     setPageCount(Math.ceil(characters?.length / itemsPerPage));
+    window.scrollTo({ top: 0, behavior: "smooth" });
     //eslint-disable-next-line
   }, [itemOffset, itemsPerPage, characters]);
 

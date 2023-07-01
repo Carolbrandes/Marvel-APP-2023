@@ -9,11 +9,15 @@ import { useState } from "react";
 
 const InitialListHero = () => {
   const [characterList, setCharacterList] = useState<ICharacter[]>();
-  const { isLoading, error } = useQuery<unknown, Error>("allHeros", () =>
-    ApiMarvel.getCharacters().then((data) =>
-      setCharacterList(data?.data?.data?.results)
-    )
-  );
+  const [noCharactersFound, setNoCharactersFound] = useState(false);
+  const { isLoading, error } = useQuery<unknown, Error>("allHeros", () => {
+    setNoCharactersFound(false);
+    ApiMarvel.getCharacters().then((data) => {
+      const res = data?.data?.data?.results;
+      setNoCharactersFound(res.length > 0 ? false : true);
+      setCharacterList(res);
+    });
+  });
 
   if (isLoading) return <Loading />;
 
@@ -25,9 +29,9 @@ const InitialListHero = () => {
 
   return characterList?.length ? (
     <HeroGrid characters={characterList} />
-  ) : (
+  ) : noCharactersFound ? (
     <Text>Nenhum personagem foi encontrado 🙁</Text>
-  );
+  ) : null;
 };
 
 export default InitialListHero;
