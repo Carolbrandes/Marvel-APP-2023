@@ -4,19 +4,15 @@ import Loading from "@components/Loading";
 import HeroGrid from "../HeroGrid";
 import Text from "@components/Text";
 import MessageError from "@components/MessageError";
+import { ICharacter } from "@common/types/IglobalContext";
+import { useState } from "react";
 
 const InitialListHero = () => {
-  const characters = localStorage.getItem("characters");
-  const { isLoading, error, data } = useQuery<unknown, Error>(
-    "allHeros",
-    () =>
-      !characters &&
-      ApiMarvel.getCharacters().then((data) =>
-        localStorage.setItem(
-          "characters",
-          JSON.stringify(data?.data?.data?.results)
-        )
-      )
+  const [characterList, setCharacterList] = useState<ICharacter[]>();
+  const { isLoading, error } = useQuery<unknown, Error>("allHeros", () =>
+    ApiMarvel.getCharacters().then((data) =>
+      setCharacterList(data?.data?.data?.results)
+    )
   );
 
   if (isLoading) return <Loading />;
@@ -27,11 +23,8 @@ const InitialListHero = () => {
     );
   }
 
-  const charactersParser =
-    (characters && JSON.parse(characters)) || data?.data?.data?.results;
-
-  return charactersParser?.length ? (
-    <HeroGrid characters={charactersParser} />
+  return characterList?.length ? (
+    <HeroGrid characters={characterList} />
   ) : (
     <Text>Nenhum personagem foi encontrado 🙁</Text>
   );
